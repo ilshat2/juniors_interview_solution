@@ -6,7 +6,7 @@ def merge_intervals(intervals):
     for current in intervals[1:]:
         prev_start, prev_end = merged[-1]
         curr_start, curr_end = current
-        if curr_start <= prev_end:  # Соприкасаются или пересекаются
+        if curr_start <= prev_end:
             merged[-1] = (prev_start, max(prev_end, curr_end))
         else:
             merged.append(current)
@@ -20,7 +20,7 @@ def intersect_intervals(a, b):
         start_b, end_b = b[j]
         start = max(start_a, start_b)
         end = min(end_a, end_b)
-        if start < end:  # Есть пересечение
+        if start < end:
             intersections.append((start, end))
         if end_a < end_b:
             i += 1
